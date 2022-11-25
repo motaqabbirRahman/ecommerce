@@ -1,0 +1,141 @@
+
+
+/* Admin Dashboard */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap');
+/* variables */
+:root{
+    --main-color: #ff672e;
+    --light-color: #e1b955;
+    --text-color: #2e2e2e;
+    --hover-color: #f78f1e;
+    --bg-color: #fff;
+    --black-color: #2e2e2e;
+    --box-shadow: 2px 2px 10px 4px rgb(14 55 54 / 15%);
+    --admin-color:#C70039;
+}
+
+
+*{
+
+    font-family: 'Poppins', sans-serif;
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    scroll-padding-top: 2rem;
+    list-style: none;
+    text-decoration: none;
+}
+
+
+.sidebar{
+    width: 250px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background:#ff672e;
+}
+
+.sidebar-brand{
+    height: 90px;
+    padding: 1rem 0rem 1rem 2rem;
+    color: #fff;
+}
+.sidebar-brand span{
+    display: inline-block;
+    padding-right: 1rem;
+}
+.sidebar-menu li{
+    width: 100%;
+    margin-bottom: 1.3rem;
+    padding-left: 2rem;
+}
+.sidebar-menu a{
+    padding-left: 1rem;
+    display: block;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.sidebar-menu a.active{
+    background:#f78f1e;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    color: var(--bg-color);
+    border-radius: 30px 0px 0px 30px;
+}
+.sidebar-menu a span :first-child{
+    font-size: 1.5rem;
+    padding-left: 1rem;
+}
+
+/* Header */
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+header h2{
+    color: #222;
+}
+header label span{
+    font: size 1.7rem;
+}
+.search-wrapper{
+    border: 1px solid #f0f0f0;
+    border-radius: 30px;
+    height: 50px;
+    display: flex;
+    align-items:center;
+    overflow-x: hidden;
+}
+.search-wrapper span{
+    display: inline-block;
+    padding: 0rem;
+}
+.search-wrapper input{
+    height: 100%;
+    padding: .5rem;
+    border: none;
+    outline: none;
+}
+.user-wrapper{
+    display: flex;
+    align-items: center;
+}
+.user-wrapper img{
+    border-radius: 50%;
+    margin-right: 1rem;
+}
+.user-wrapper small{
+    display: inline-block;
+    color: var(--text-color);
+}
+
+/*create option*/
+
+.box.span12{
+  position:relative; /* or absolute */
+  top: 30%;
+  left: 30%;
+  width: 500px;
+  padding: 50px;
+  margin: 20px;
+}
+.box-header{
+    padding-left: 1rem;
+    display: block;
+    color: #ff672e;
+    font-size: 1.1rem;
+}
+.btn{
+    background: var(--main-color);
+    padding: 15px 24px;
+    color: var(--bg-color);
+    font-size: 1rem;
+    font-weight: 500;
+    border-radius: 0.5rem;  
+}
