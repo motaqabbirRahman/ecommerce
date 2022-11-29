@@ -1,5 +1,6 @@
 @extends('frontend.master')
-@section('product')
+
+@section('product_content')
 <!-- Home Section stars -->
     <section class="home container" id="home">
         <div class="home-text">
@@ -24,148 +25,55 @@
         <!-- popular content -->
         <div class="popular-content">
             <!-- box1 -->
-           <div class="box">
-            <img src="img/product1.jpg" alt="">
-               <div class="box-text">
-                <div class="title-price">
-                    <a href="product.html">Classic Book</a>
-                    <span>300/-</span>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-               </div>
-           </div> 
-           <!-- box2 -->
-            <div class="box">
-            <img src="img/product5.jpg" alt="">
-               <div class="box-text">
-                <div class="title-price">
-                    <a href="product.html">Classic Book</a>
-                    <span>300/-</span>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-               </div>
-           </div>
-           <!-- box3 -->
-            <div class="box">
-            <img src="img/product3.jpg" alt="">
-               <div class="box-text">
-                <div class="title-price">
-                    <a href="product.html">Classic Book</a>
-                    <span>300/-</span>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-               </div>
-           </div>
-           <!-- box4 -->
-            <div class="box">
-            <img src="img/product4.jpg" alt="">
-               <div class="box-text">
-                <div class="title-price">
-                    <a href="product.html">Classic Book</a>
-                    <span>300/-</span>
-                </div>
-                <a href="#"><i class='bx bx-cart-alt' ></i></a>
-               </div>
-            </div>
+            @foreach($products as $product)
+                <div class="box">
+                    <img src="{{asset('/storage/'.$product->image)}}"  alt="">
+                    <div class="box-text">
+                        <div class="title-price">
+                            <a href="{{url('/view-details'.$product->id)}}">{{$product->id}}</a><br>
+                            <span>{{$product->price."/-"}}</span>
+                        </div>
+                        <form action="{{url('add-to-cart')}}" method="post"  enctype="multipart/form-data" id="9">
+                            @csrf
+                                <input type="hidden" name="quantity" value="1">
+                                <button class="add-to-cart-btn">
+                                    <!-- <i class='bx bx-cart-alt'>
+                                       <a href="{{url('add-to-cart/'.$product->id)}}" ></a>
+                                    </i>   -->
+                                      <a href="{{url('add-to-cart/'.$product->id)}}" class='bx bx-cart-alt'></a>
+                                </button>
+                        </from>
+                    </div>
+                </div> 
+             @endforeach
+            
         </div>
      </section>
     <!-- Popular Section End -->
     <!-- Products section star -->
-    <section class="product container" id="products">
+    <section class="product container" id="popular">
         <div class="heading">
-            <h2>Book Shop</h2>
-            <a href="">See Book </a>
+            <h2>All Prouducts</h2>
+            <a href="#">See All</a>
         </div>
-         <!--Products content--> 
-            <div class="product-content">
-                <!-- box1 -->
+        <!-- popular content -->
+        <div class="product-content">
+            <!-- box1 -->
+            @foreach($products as $product)
                 <div class="box">
-                    <img src="img/product1.jpg" alt="">
+                    <img src="{{asset('/storage/'.$product->image)}}"  alt="">
                     <div class="box-text">
                         <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
+                            <a href="{{url('/view-details'.$product->id)}}">{{$product->id}}</a><br>
+                            <span>{{$product->price."/-"}}</span>
                         </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
+                                    <a href="{{url('add-to-cart/'.$product->id)}}" class='bx bx-cart-alt'></a>
                 </div>
-                <!-- box1 -->
-                <div class="box">
-                    <img src="img/product5.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>
-                <!-- box2 -->
-                <div class="box">
-                    <img src="img/product6.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>
-                <!-- box3 -->
-                <div class="box">
-                    <img src="img/product7.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>
-                <!-- box4 -->
-                <div class="box">
-                    <img src="img/product8.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>
-                <!-- box5 -->
-                <div class="box">
-                    <img src="img/product1.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>
-                <!-- box7 -->
-                <div class="box">
-                    <img src="img/product2.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>
-                <!-- box8 -->
-                <div class="box">
-                    <img src="img/product3.jpg" alt="">
-                    <div class="box-text">
-                        <div class="title-price">
-                            <a href="product.html">Classic Book</a>
-                            <span>300/-</span>
-                        </div>
-                        <a href="#"><i class='bx bx-cart-alt' ></i></a>
-                    </div>
-                </div>    
             </div>
-    </section>
+            @endforeach
+               
+              
+              
+        </div>
+     </section>
 @endsection()

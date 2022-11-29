@@ -119,11 +119,12 @@ header label span{
 
 .box.span12{
   position:relative; /* or absolute */
-  top: 30%;
+top: 30%;
   left: 30%;
   width: 500px;
+  height: 500px; 
   padding: 50px;
-  margin: 20px;
+  margin: 20px; 
 }
 .box-header{
     padding-left: 1rem;
@@ -133,9 +134,16 @@ header label span{
 }
 .btn{
     background: var(--main-color);
-    padding: 15px 24px;
+    /* padding: 15px 24px; */
     color: var(--bg-color);
     font-size: 1rem;
     font-weight: 500;
-    border-radius: 0.5rem;  
+    /* border-radius: 0.5rem;   */
+}
+form-horizontal {
+    height: 500px;
+}
+.container{
+    position: relative;
+    left: 500px;
 }
