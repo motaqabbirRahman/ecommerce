@@ -7,30 +7,36 @@
             </div>
             <!-- Nav list -->
             <ul class="navbar">
-                <li><a href="#home">Home</a></li>
+                <li><a href="{{url('/')}}">Home</a></li>
                 <li>
-                    <!-- <a href="#category">Category</a> -->
-                    <div class="dropdown">
+                 <div class="dropdown">
                     <button class="dropbtn">Category</button>
                       <div class="dropdown-content">
                         @foreach($categories as $category)
                         <a class="dd-option" href="#">{{$category->name}}</a>
                         @endforeach
                       </div>
-                    </div>
+                 </div>
                 </li>
                 <li><a href="#contact">Contact</a></li>
                 <li><a href="#about">About</a></li>
             </ul>
             <!--Logo -->
-            <a href="#" class="logo">
+            <a href="{{url('/')}}"class="logo">
                 Solaris<span>.</span>
             </a>
             <!--Nav Icons -->
             <div class="nav-icons">
                 <i class='bx bx-search' id="search-icon"></i>
                 <i class='bx bx-cart-alt' id="cart-icon"></i>
-                <i class='bx bx-user' id="user-icon"></i>
+                @php
+                 $customer_id=Session::get('id');
+                @endphp
+                @if($customer_id!=Null)
+                <a href="{{url('/customer-logout')}}" class='bx bx-log-out' id="logout-icon"></a>
+                @else
+                <a href="{{url('/login-check')}}" class='bx bx-user' id="user-icon"></a>
+                @endif
             </div>
             <!--Cart -->
             @php
@@ -53,31 +59,18 @@
                     <h3><?=count($cart_array)?></h3>
                     <span>Total: {{Cart::getTotal()}}/-</span>
                 </div>
-                <a href="#" class="btn">Proceed To Payment</a>
+                @php
+                 $customer_id=Session::get('id');
+                @endphp
+                @if($customer_id!=null)
+                <a href="{{url('/checkout')}}" class="btn">Checkout</a>
+                @else
+                <a href="{{url('/login-check')}}" class="btn">Checkout</a>
+                @endif
               </div> 
             </div>
 
-            <!-- login-form -->
-            <div class="login-form">
-                <!-- Form -->
-                <form action="">
-                    <h2>Login To Continue</h2>
-                    <input type="email" name="" id="" placeholder="Email" required>
-                    <input type="password" name="" id="" placeholder="Password" requried>
-                    <a href="#">Forget Passsword?</a>
-                    <input type="submit" value="Log In" class="btn">
-                    <!-- google sign-up -->
-                    <div class="google-btn">
-                     <div class="google-icon-wrapper">
-                      <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
-                     </div>
-                     <!-- <input type="submit" value="Sign in with google" class="btn-text"> -->
-                     <a href="{{url('google-login')}}" class="btn-text" type="submit"><b>Sign in with google</b></a>
-                    </div>
-                    <a href="signup.html">Create Account</a>
-                </form>
-            </div>
-        </div>
+
         <div class="search-box">
                 <input type="search" placeholder="Search Here....">
         </div>

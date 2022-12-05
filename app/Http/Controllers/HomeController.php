@@ -19,4 +19,7 @@ class HomeController extends Controller
         $product=Product::findOrFail($id);
         return view('frontend.pages.view_details',compact('categories','product'));
     }
+    public function signup(){
+        return view('frontend.signup');
+    }
 }

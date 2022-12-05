@@ -241,14 +241,14 @@ header{
     height: 100vh;
     background: rgba(255,255,2552,0.74);
     backdrop-filter: blur(4.5px);
-    z-index: 106;
-    display: none;
+    /* z-index: 106; */
+    display: flex;
     justify-content: center;
     align-items: center;
-    transition: 0.3s ease;
+    /* transition: 0.3s ease; */
 }
 
-.login-form form{
+.login-form .form{
     max-width: 300px;
     width: 100%;
     margin: auto;
@@ -257,7 +257,7 @@ header{
     row-gap: 1rem;
     padding: 10px;
 }
-.login-form form h2{
+.login-form .form h2{
     font-size: 1.4rem;
     font-weight: 600;
 }
@@ -275,7 +275,7 @@ header{
    font-size: 0.9rem;
    font-weight: 400 ;
 }
-.login-form form a{
+.login-form .form a{
     font-size: 0.9rem;
     font-weight:500;
     color:var(--text-color);
@@ -320,9 +320,11 @@ header{
   }
   .btn-text {
     float: middle;
+    position: relative;
     margin: 11px 11px 0 0;
-    color: #f1f1f1;
-    font-size: 14px;
+    position: relative;
+    margin-left: 3px;
+    font-size: 12px;
     letter-spacing: 0.2px;
     font-family: "Roboto";
   }
@@ -406,12 +408,11 @@ header{
     height: 100vh;
     background: rgba(255,255,2552,0.74);
     backdrop-filter: blur(4.5px);
-    z-index: 106;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: centr;
 }
-.signup-form form{
+.signup-form .form{
     max-width: 300px;
     width: 100%;
     margin: auto;
@@ -420,7 +421,7 @@ header{
     row-gap: 1rem;
     padding: 10px;
 }
-.signup-form form h2{
+.signup-form .form h2{
     font-size: 1.4rem;
     font-weight: 600;
 }
@@ -447,7 +448,9 @@ header{
     border: none;
     background: var(--hover-color);
 }
-
+.signup-form .google-btn .gbtn-text{
+    
+}
 
 /* HOme */
 .home{
@@ -709,4 +712,13 @@ color: #2e2e2e;
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {
     background: #ff672e;
+}
+
+
+/*chekout*/
+
+.container-checkout{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
 }
