@@ -8,8 +8,8 @@
                     <h2>Login To Continue</h2>
                     <form action="{{url('/customer-login')}}" method="post">
                      @csrf
-                        <input type="email" name="email" placeholder="Email" required><br>>
-                        <input type="password" name="password" placeholder="Password" requried><br>>
+                        <input type="email" name="email" placeholder="Email" required><br>...
+                        <input type="password" name="password" placeholder="Password" requried><br>...
                         <input type="submit" value="Log In" class="btn">
                    </form> 
                    <a href="#">Forget Passsword?</a>

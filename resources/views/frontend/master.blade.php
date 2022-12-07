@@ -15,6 +15,7 @@
     <link rel="shortcut icon" href="img/books.png" type="image/x-icon">
  
 </head>
+
 <body>
     <!-- Header Starts -->
  <header>
@@ -28,6 +29,17 @@
     @yield('signup') 
     @yield('content')
     <!-- js -->
+    <script>
+              (function (window, document) {
+                     var loader = function () {
+                         var script = document.createElement("script"), tag = document.getElementsByTagName("script")[0];
+                     script.src = "https://sandbox.sslcommerz.com/embed.min.js?" + Math.random().toString(36).substring(7);
+                         tag.parentNode.insertBefore(script, tag);
+                 };
+
+                     window.addEventListener ? window.addEventListener("load", loader, false) : window.attachEvent("onload", loader);
+                 })(window, document);
+    </script>
    <script src="{{('js/main.js')}}"></script>
  </body>
- 
+@include('frontend.footer') 
