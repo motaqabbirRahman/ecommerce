@@ -11,8 +11,7 @@ use App\Http\Controllers\CheckoutController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use App\Models\Admin;
 use Illuminate\Support\Facades\Route;
-
-
+use Laravel\Socialite\Facades\Socialite;
 
 
 /*
@@ -54,14 +53,18 @@ Route::get('/delete-cart/{id}',[CartController::class,'delete']);
 Route::post('/customer-login', [CustomerController::class, 'login']);
 Route::post('/customer-registration', [CustomerController::class, 'registration']);
 Route::get('/customer-logout', [CustomerController::class, 'logout']);
+
+
 //Checkout
 // Route::get('/checkout', [CheckoutController::class, 'index']);
 Route::get('/login-check', [CheckoutController::class, 'login_check']);
 // Route::post('save-shipping-details', [CheckoutController::class, 'save_shipping_address']);
 // Route::get('payment', [CheckoutController::class, 'payment']);
+
+
 //Google Login 
-Route::get('/auth/google/redirect',[AuthController::class,], 'google_redirect')->name('google-login');
-Route::get('/auth/google/callback',[AuthController::class,], 'google_callback');
+Route::get('/auth/google/redirect', [AuthController::class, 'google_redirect']);
+Route::get('/auth/google/callback', [AuthController::class, 'google_callback']);
 
 // SSLCOMMERZ Start
 Route::get('/checkout', [SslCommerzPaymentController::class, 'exampleEasyCheckout']);

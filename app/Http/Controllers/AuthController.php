@@ -3,10 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\User;
+use Laravel\Socialite\Facades\Socialite;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use Session;
 
 class AuthController extends Controller
 {
-     public function google_rediret(Request $request){
+     public function google_redirect(Request $request){
 
         return Socialite::driver('google')->redirect();
 
@@ -21,7 +27,8 @@ class AuthController extends Controller
         if($user){
             //do login
             Auth::login($user);
-            return redirect('/dashboard');
+            Session::put('id',$user->id);
+            return redirect('/checkout');  
         }
         else{
             $uuid = Str::uuid()->toString();
@@ -32,7 +39,7 @@ class AuthController extends Controller
             $user->password = Hash::make($uuid.now());
             $user->auth_type='google';
             $user->save();
-            Auth:login($user);
+            Auth::login($user);
             return redirect('/dashboard');
 
         }

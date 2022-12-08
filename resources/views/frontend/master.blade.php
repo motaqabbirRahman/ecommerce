@@ -42,4 +42,4 @@
     </script>
    <script src="{{('js/main.js')}}"></script>
  </body>
-@include('frontend.footer') 
+<!-- @include('frontend.footer')  -->

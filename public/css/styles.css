@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;600;700&display=swap');
-@import url("https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css");
-@import url(https://fonts.googleapis.com/css?family=Roboto:500);
+@import url('https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css');
+@import url('https://fonts.googleapis.com/css?family=Roboto:500');
 *{
 
     font-family: 'Poppins', sans-serif;
@@ -545,6 +545,7 @@ header{
     background: var(--bg-color);
     padding: 10px;
     border-radius: 0.5rem;
+    margin-top: 15px;
     
 }
 .title-price a{ 
@@ -569,7 +570,6 @@ color: #2e2e2e;
     background: var(--main-color)
 }
 .add-to-cart-btn{
-
     background-color: #f9f9f9;
     border: #f1f1f1;
 }
@@ -587,6 +587,8 @@ color: #2e2e2e;
     color: var(--bg-color)
 }
 .product-content .box-text .bx{
+    padding: 10px;
+    font-size: 20px;
     background: var(--main-color);
 }
 .product-content .box-text .bx:hover{

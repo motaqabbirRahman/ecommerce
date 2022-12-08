@@ -12,48 +12,13 @@
 
         <p class="lead">Checkout</p>
     </div>
-
-    <div class="row">
-        <div class="col-md-4 order-md-2 mb-4">
-            <h4 class="d-flex justify-content-between align-items-center mb-3">
-                <span class="text-muted">Your cart</span>
-                <span class="badge badge-secondary badge-pill">3</span>
-            </h4>
-            <ul class="list-group mb-3">
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Product name</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">1000</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Second product</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">50</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between lh-condensed">
-                    <div>
-                        <h6 class="my-0">Third item</h6>
-                        <small class="text-muted">Brief description</small>
-                    </div>
-                    <span class="text-muted">150</span>
-                </li>
-                <li class="list-group-item d-flex justify-content-between">
-                    <span>Total (BDT)</span>
-                    <strong>1200 TK</strong>
-                </li>
-            </ul>
-        </div>
         <div class="col-md-8 order-md-1">
             <h4 class="mb-3">Billing address</h4>
             <form method="POST" class="needs-validation" novalidate>
                 <div class="row">
                     <div class="col-md-12 mb-3">
                         <label for="firstName">Full name</label>
-                        <input type="text" name="customer_name" class="form-control" id="customer_name" placeholder=""
+                        <input type="text" name="name" class="form-control" id="customer_name" placeholder=""
                                value="John Doe" required>
                         <div class="invalid-feedback">
                             Valid customer name is required.
@@ -92,23 +57,6 @@
                         Please enter your shipping address.
                     </div>
                 </div>
-
-                <div class="mb-3">
-                    <label for="address2">Address 2 <span class="text-muted">(Optional)</span></label>
-                    <input type="text" class="form-control" id="address2" placeholder="Apartment or suite">
-                </div>
-
-                <div class="row">
-                    <div class="col-md-5 mb-3">
-                        <label for="country">Country</label>
-                        <select class="custom-select d-block w-100" id="country" required>
-                            <option value="">Choose...</option>
-                            <option value="Bangladesh">Bangladesh</option>
-                        </select>
-                        <div class="invalid-feedback">
-                            Please select a valid country.
-                        </div>
-                    </div>
                     <div class="col-md-4 mb-3">
                         <label for="state">State</label>
                         <select class="custom-select d-block w-100" id="state" required>
@@ -130,7 +78,7 @@
                 <hr class="mb-4">
                 <div class="custom-control custom-checkbox">
                     <input type="checkbox" class="custom-control-input" id="same-address">
-                    <input type="hidden" value="1200" name="amount" id="total_amount" required/>
+                    <input type="hidden" value="{{Cart::getTotal()}}" name="amount" id="total_amount" required/>
                     <label class="custom-control-label" for="same-address">Shipping address is the same as my billing
                         address</label>
                 </div>
@@ -141,7 +89,7 @@
                 <hr class="mb-4">
                 <button class="btn btn-primary btn-lg btn-block" id="sslczPayBtn"
                         token="if you have any token validation"
-                        postdata="your javascript arrays or objects which requires in backend"
+                        postdata=""
                         order="If you already have the transaction generated for current order"
                         endpoint="{{ url('/pay-via-ajax')}}"> Pay Now
                 </button>
@@ -171,6 +119,9 @@
     obj.cus_addr1 = $('#address').val();
     obj.amount = $('#total_amount').val();
 
+    $("#customer_name").change(function(){
+        obj.cus_name = $('#customer_name').val();
+    });
     $('#sslczPayBtn').prop('postdata', obj);
 
     (function (window, document) {

@@ -19,7 +19,7 @@
                       <img class="google-icon" src="https://upload.wikimedia.org/wikipedia/commons/5/53/Google_%22G%22_Logo.svg"/>
                      </div>
                      <!-- <input type="submit" value="Sign in with google" class="btn-text"> -->
-                     <a href="{{url('google-login')}}" class="gbtn-text" type="submit"><b>Sign in with google</b></a>
+                     <a href="{{url('/auth/google/redirect')}}" class="gbtn-text" type="submit"><b>Sign in with google</b></a>
                     </div>
                     <a href="{{url('signup')}}">Register Account</a>
                     </div>
