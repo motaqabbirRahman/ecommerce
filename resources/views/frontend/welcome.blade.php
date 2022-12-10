@@ -68,12 +68,10 @@
                             <span>{{$product->price."/-"}}</span>
                         </div>
                                     <a href="{{url('add-to-cart/'.$product->id)}}" class='bx bx-cart-alt'></a>
-                </div>
-            </div>
-            @endforeach
-               
-              
-              
+                       </div>
+               </div>
+           
+               @endforeach
         </div>
      </section>
 @endsection()

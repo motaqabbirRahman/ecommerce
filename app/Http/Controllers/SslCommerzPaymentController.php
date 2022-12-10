@@ -25,16 +25,17 @@ class SslCommerzPaymentController extends Controller
         # Here you have to receive all the order data to initate the payment.
         # Let's say, your oder transaction informations are saving in a table called "orders"
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
-
+        $requestData = (array) json_decode($request->cart_json);
+        dd($request->all());
         $post_data = array();
         $post_data['total_amount'] = '10'; # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
 
-        # CUSTOMER INFORMATION
-        $post_data['cus_name'] = $post_data['cus_name'];
+        # CUSTOMER INFORMATIOn
+        $post_data['cus_name'] = $requestData['cus_name'];
         $post_data['cus_email'] = 'customer@mail.com';
-        $post_data['cus_add1'] = $request->address;
+        $post_data['cus_add1'] = $requestData['cus_add1'];
         $post_data['cus_add2'] = "";
         $post_data['cus_city'] = "";
         $post_data['cus_state'] = "";

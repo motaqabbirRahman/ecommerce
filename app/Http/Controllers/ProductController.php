@@ -42,32 +42,14 @@ class ProductController extends Controller
         $product->cat_id = $request->category;
         $product->name = $request->name;
         $product->description = $request->description;
-        // $product->code = $request->code;
         $product->price = $request->price;
         $product->image = $request->image->store('product');
-        //  $images=array();
-        //  if($files=$request->file('file')){
-        //     $i=0;
-        //     foreach($files as $file){
-        //         $name=$file->getClientOriginalName();
-        //         $fileNameExtract=explode('.',$name);
-        //         $fileName=$fileNameExtract[0];
-        //         $fileName.=time();
-        //         $fileName.=$i;
-        //         $fileName.='.';
-        //         $fileName.=$fileNameExtract[1];
-        //         $file->move('image',$fileName);
-        //         $image[]=$fileName;
-        //         $i++;
-        //     }
-        //     $product['image']=implode("|",$images);
-            $product->save();
-            return redirect()->back()->with('message','Product added successfully');
+            
+        $product->save();
+        return redirect()->back()->with('message','Product added successfully');
 
          }
-        //  else{
-        //     echo "error";
-        //  }
+     
     
 
     /**
