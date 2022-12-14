@@ -30,7 +30,7 @@
                     <img src="{{asset('/storage/'.$product->image)}}"  alt="">
                     <div class="box-text">
                         <div class="title-price">
-                            <a href="{{url('/view-details'.$product->id)}}">{{$product->id}}</a><br>
+                            <a href="{{url('/view-details'.$product->id)}}">{{$product->name}}</a><br>
                             <span>{{$product->price."/-"}}</span>
                         </div>
                         <form action="{{url('add-to-cart')}}" method="post"  enctype="multipart/form-data" id="9">

@@ -16,29 +16,15 @@
      
         <p class="price">{{$product->price.'/-'}}</p>
            <div class="rating">
-            <div class="rating-star">
-                <div class="inline-block">
-                    <img src ="img/fill star.png">
-                 </div>
-                <div class="inline-block">
-                    <img src ="img/fill star.png">
-                 </div>
-                <div class="inline-block">
-                    <img src ="img/fill star.png">
-                 </div>
-                <div class="inline-block">
-                    <img src ="img/fill star.png">
-                 </div>
-                <div class="inline-block">
-                    <img src ="img/fill star.png">
-                 </div>
-                 <span>4,509 ratings</span>
-            </div>   
+                 <span></span>
+              
         </div>
 
         <div class="btn-container">
             <button class="product-btn buy-btn">Buy Now</button>
-            <button class="product-btn cart-btn">Add to Cart</button>
+            <button class="product-btn cart-btn">Add to Cart
+            <a href="{{url('add-to-cart/'.$product->id)}}" class='bx bx-cart-alt'></a>
+            
         </div>
     </div>
 

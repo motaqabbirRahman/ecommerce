@@ -42,33 +42,8 @@ class CategoryController extends Controller
       $category->description = $request->description;
       $category->image = $request->image->store('category');
       
-    //   if($request->has('image')){
-    //         // dd($request->image);
-    //         $file = $request->image;
-    //         $extension = $file->getClientOriginalExtension();
-    //         $filename = time().'.'.$extension;
-    //         $file->move('category',$filename);
-    //         $category->image = $filename; 
-    //   }
       $category->save();
       return redirect()->back()->with('message','Successfully Created');
-    //   dd($category->image);
-    //   $category->image= $image->storeAs('category', 'image.jpg'); // it return the path at which the file is now saved
-    //   dd(cagegory->image);
-      
-    //   dd($request->image);
-    //   if ($request->hasFile('image')){
-    //     // $file = $request->file('image');
-    //     // $extension = $file->getClientOriginalExtension();
-    //     // $filename = time().'.'.$extension;
-    //     // $file->move('category',$filename);
-    //     // // $category->image = $filename;
-    //     // $category->image = $request->image
-    //   }
-      
-    //   return rediret()->back()->with('message','category successfully created');
-
-
       
     }
 

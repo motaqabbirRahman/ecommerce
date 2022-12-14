@@ -135,23 +135,16 @@ header{
 
 /* Search Box */
 .search-box{
-    position: absolute;
-    top: 110%;
-    right: -70%;
-    margin-right: 8.5rem;
-}
-.search-box input{
-    padding: 10px;
+    top: 5%;
+    /* margin-right: 8.5rem; */
+    padding: 5px;   
     border: none;
     outline: none;
     border-radius: 0.5rem;
     width: 280px;
     box-shadow: var(--box-shadow);
 }
-.search-box.active{
-    right: 1rem;
-    transition: 0.2s;
-}
+
 /* Cart */
 
 .cart{
@@ -649,7 +642,7 @@ color: #2e2e2e;
     text-transform: capitalize; 
     position: relative;
 }
-.buy-btn{
+.product-btn.buy-btn{
     background-color: #ff672e;
     
 }

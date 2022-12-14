@@ -13,7 +13,7 @@
                     <button class="dropbtn">Category</button>
                       <div class="dropdown-content">
                         @foreach($categories as $category)
-                        <a class="dd-option" href="#">{{$category->name}}</a>
+                        <a class="dd-option" href="{{url('/view-cat-details'.$category->id)}}">{{$category->name}}</a>
                         @endforeach
                       </div>
                  </div>
@@ -27,7 +27,9 @@
             </a>
             <!--Nav Icons -->
             <div class="nav-icons">
-                <i class='bx bx-search' id="search-icon"></i>
+                <form action="{{'/search'}}" method="GET">
+                    <input class="search-box"  name="product" placeholder="search here" value="{{request('product')}}">
+                </form>
                 <i class='bx bx-cart-alt' id="cart-icon"></i>
                 @php
                  $customer_id=Session::get('id');
@@ -69,8 +71,3 @@
                 @endif
               </div> 
             </div>
-
-
-        <div class="search-box">
-                <input type="search" placeholder="Search Here....">
-        </div>

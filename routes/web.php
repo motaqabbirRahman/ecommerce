@@ -43,7 +43,8 @@ Route::resource('/products',ProductController::class);
 Route::get('/',[HomeController::class,'index']);
 Route::get('/view-details{id}',[HomeController::class,'view_details']);
 Route::get('/signup', [HomeController::class, 'signup']);
-
+Route::get('/view-cat-details{id}',[HomeController::class,'view_cat_details']);
+Route::get('/search',[HomeController::class,'search']);
 //Cart
 // Route::post('/add-to-cart',[CartController::class,'add_to_cart']); working config
 Route::get('/add-to-cart/{id}',[CartController::class,'add_to_cart']);
