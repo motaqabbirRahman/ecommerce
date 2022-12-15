@@ -47,6 +47,7 @@ Route::get('/view-cat-details{id}',[HomeController::class,'view_cat_details']);
 Route::get('/search',[HomeController::class,'search']);
 //Cart
 // Route::post('/add-to-cart',[CartController::class,'add_to_cart']); working config
+Route::get('/cart',[CartController::class,'view_cart']);
 Route::get('/add-to-cart/{id}',[CartController::class,'add_to_cart']);
 Route::get('/delete-cart/{id}',[CartController::class,'delete']);
 

@@ -51,4 +51,8 @@ class CartController extends Controller
         Cart::remove($id);
         return redirect()->back();
     }
+
+    public function view_cart(){
+          return  view('frontend.pages.cart'); 
+    }
 }
